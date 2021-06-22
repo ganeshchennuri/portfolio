@@ -23,7 +23,7 @@ TEMPLATE_DIR = Path(BASE_DIR).joinpath('templates')
 SECRET_KEY = 'django-insecure-kjxvf#jdo=54&oaom(jek)j5ri)!(6jtr$fdz=j(pqgl&ukms+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1']
 
@@ -121,16 +121,19 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-LOCAL_STATIC_CDN_PATH = Path(BASE_DIR).joinpath('test_cdn_static')
+# LOCAL_STATIC_CDN_PATH = Path(BASE_DIR).joinpath('test_cdn_static')
 
-STATIC_ROOT = Path(LOCAL_STATIC_CDN_PATH).joinpath('static') #this must be outside the project dir like amazon s3 storage
+# STATIC_ROOT = Path(LOCAL_STATIC_CDN_PATH).joinpath('static') #this must be outside the project dir like amazon s3 storage
+
 STATIC_DIR = Path(BASE_DIR).joinpath('static')
 STATICFILESDIRS = [
     STATIC_DIR,
 ]
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = Path(LOCAL_STATIC_CDN_PATH).joinpath('media')
+# MEDIA_ROOT = Path(LOCAL_STATIC_CDN_PATH).joinpath('media')
+MEDIA_ROOT = Path(BASE_DIR).joinpath('media')
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 

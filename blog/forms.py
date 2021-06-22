@@ -1,7 +1,11 @@
 from django import forms
 from .models import BlogPost
+from django.forms.widgets import NumberInput
 
 class BlogPostForm(forms.ModelForm):
+    publish_date = forms.DateTimeField(
+        widget=NumberInput(attrs={'type': 'date'}))
+
     class Meta:
         model = BlogPost
         fields = ['title','slug','content','image', 'publish_date']
