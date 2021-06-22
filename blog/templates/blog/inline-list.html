@@ -1,0 +1,15 @@
+{% load custom_filters %}
+
+<div class="col-sm-4">
+    <div class="card bg-dark text-light border-success {% if not object.publish_date %} border-warning {% endif %}">
+        <div class="card-body">
+            <h5 class="card-title">{{ object.title }}</h5>
+            <small class="text-muted">Author - {{ object.user }}, {{ object.publish_date }}</small>
+            <p class="card-text">{{ object.content | short }}</p>
+            {% if not object.publish_date %}
+                Draft
+            {% endif %}
+            <a href="{{ object.get_absolute_url }}" class="btn btn-primary" style="margin-left: 5px;">View</a>
+        </div>
+    </div>
+</div>  

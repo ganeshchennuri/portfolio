@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block head_title %}
+    <title>{{ title }}</title>
+{% endblock %}
+
+
+{% block body %}
+    {% if title %}
+        <h1 style="margin-top: 2rem;">{{ title }}</h1>
+    {% endif %}
+    <p style="margin-top: 1rem;">{{ object.content | linebreaks }}</p>
+    {% if object.image %}
+        <img class="img-fluid" style="margin: 2%; width: 96%;" src="{{ object.image.url }}">
+    {% endif %}
+    
+
+    {% if request.user.is_authenticated %}
+        {% if user.is_staff %}
+            <a href='{{ object.get_edit_url }}' style="margin-right: 1rem;"><button type="button" class="btn btn-warning" style="width: 90px;">Edit</button></a>
+            <a href='{{ object.get_delete_url }}'><button class="btn btn-danger" style="width: 90px;">Delete</button></a>
+        {% endif %}
+    {% endif %}    
+{% endblock %}

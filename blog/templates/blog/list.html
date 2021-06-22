@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block head_title %}
+    <title>My Blogs</title>
+{% endblock %}
+
+{% block body %}
+    <h1 style="margin: 40px;">Welcome!</h1>
+    <div class="row m-10">
+        {% for object in object_list %}
+            {% include 'blog/inline-list.html' with object=object %}
+        {% endfor %}
+    </div>
+{% endblock %}

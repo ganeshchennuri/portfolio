@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block body %}
+    <div class="row">
+        <div class="col-12 col-8 mx-auto">
+            {% if query %}
+                <h5 class="lead" style="margin: 40px;"> You searched for {{ query }}</h5>
+            {% endif %}
+            <h5 style="text-align: left; margin: 20px;">We have found {{ object_list | length }} Results</h5>
+        </div>
+    </div>
+    <div class="row m-10">
+        {% for object in object_list %}
+            {% include 'blog/inline-list.html' with object=object %}
+        {% endfor %}
+    </div>
+{% endblock %}
